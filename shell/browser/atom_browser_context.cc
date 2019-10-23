@@ -66,6 +66,10 @@
 #include "components/user_prefs/user_prefs.h"
 #endif
 
+#if BUILDFLAG(ENABLE_BUILTIN_SPELLCHECKER)
+#include "components/language/core/browser/language_prefs.h"
+#endif
+
 using content::BrowserThread;
 
 namespace electron {
@@ -186,6 +190,8 @@ void AtomBrowserContext::InitPrefs() {
 #if BUILDFLAG(ENABLE_BUILTIN_SPELLCHECKER)
   BrowserContextDependencyManager::GetInstance()
       ->RegisterProfilePrefsForServices(registry.get());
+
+  language::LanguagePrefs::RegisterProfilePrefs(registry.get());
 #endif
 
   prefs_ = prefs_factory.Create(
