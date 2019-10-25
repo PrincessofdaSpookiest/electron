@@ -8,6 +8,7 @@
 #include <memory>
 #include <string>
 
+#include "base/values.h"
 #include "gin/handle.h"
 #include "native_mate/wrappable.h"
 #include "shell/common/gin_helper/error_thrower.h"
@@ -19,10 +20,6 @@
 #include "shell/browser/browser_observer.h"
 #include "ui/gfx/sys_color_change_listener.h"
 #endif
-
-namespace base {
-class DictionaryValue;
-}
 
 namespace electron {
 
